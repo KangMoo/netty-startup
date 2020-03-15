@@ -9,6 +9,7 @@ class DiscardServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf buf = (ByteBuf) msg;
+        ((ByteBuf)msg).release();
         try {
             // discard
         } finally {
